@@ -24,10 +24,10 @@ class LeadsPostController
     {
         $name = $request->get('name');
         $email = $request->get('email');
+        $nuevoVar = 'prueba';
 
         try {
             $this->commandBus->dispatch(new CreateLeadCommand($name, $email));
-
             return new Response(null, Response::HTTP_CREATED);
         } catch (DuplicatedLeadException $e) {
             return new ErrorResponse($e, Response::HTTP_BAD_REQUEST);

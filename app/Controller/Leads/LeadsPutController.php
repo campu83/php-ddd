@@ -14,6 +14,7 @@ class LeadsPutController
     private CommandBus $commandBus;
     public function __construct(CommandBus $commandBus)
     {
+
         $this->commandBus = $commandBus;
     }
 
